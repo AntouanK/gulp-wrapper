@@ -1,7 +1,6 @@
 var should = require('should'),
     wrapper = require('../'),
-    gutil = require('gulp-util')
-	gulp = require('gulp'),
+    gutil = require('gulp-util'),
     fs = require('fs'),
     pj = require('path').join;
 

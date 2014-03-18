@@ -1,5 +1,6 @@
 gulp-wrapper
 ============
+[![Build Status](https://travis-ci.org/AntouanK/gulp-wrapper.png?branch=master)](https://travis-ci.org/AntouanK/gulp-wrapper) [![NPM version](https://badge.fury.io/js/gulp-wrapper.png)](http://badge.fury.io/js/gulp-wrapper)
 
 Basically `gulp-header` & `gulp-footer` together.
 With the addition that the filename is revealed to the user.

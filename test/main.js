@@ -169,5 +169,39 @@ describe('gulp-wrapper', function () {
 			stream.write(fakeFile);
 			stream.end();
 		});
+
+		it('should add a "<script id="file.js"> header" and a "</script> footer"', function(done){
+
+			var fakeContent = '<div>sample HTML</div>',
+				header      = '<script id="${filename}">',
+				footer      = '</script>',
+				fakeFile    = getFakeFile(fakeContent),
+				stream      = wrapper({
+					header: header,
+					footer: footer
+				});
+
+			stream.on('data', function (file) {
+				should.exist(file);
+				should.exist(file.path);
+				should.exist(file.relative);
+				should.exist(file.contents);
+
+				file.path.should.equal('./test/fixture/file.js');
+				file.relative.should.equal('file.js');
+				file.contents.toString().should.equal('<script id="'+file.relative+'">' + fakeContent + footer);
+
+			});
+
+			stream.once('end', function () {
+
+				done();
+			});
+
+			stream.write(fakeFile);
+			stream.end();
+		});
+
+
 	});
 });

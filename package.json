@@ -14,5 +14,12 @@
     "footer"
   ],
   "author": "Antonis Karamitros @antouank",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AntouanK/gulp-wrapper.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "through2": "~0.4.1"
+  }
 }

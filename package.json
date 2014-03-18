@@ -1,0 +1,18 @@
+{
+  "name": "gulp-wrapper",
+  "version": "0.1.0",
+  "description": "A gulp plugin for wrapping your files with certain strings. Access to filename is given",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp-wrapper",
+    "wrap",
+    "wrapper",
+    "header",
+    "footer"
+  ],
+  "author": "Antonis Karamitros @antouank",
+  "license": "MIT"
+}

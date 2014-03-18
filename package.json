@@ -11,7 +11,8 @@
     "wrap",
     "wrapper",
     "header",
-    "footer"
+    "footer",
+	"gulpplugin"
   ],
   "author": "Antonis Karamitros @antouank",
   "repository": {

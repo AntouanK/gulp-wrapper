@@ -4,7 +4,7 @@
   "description": "[WIP] A gulp plugin for wrapping your files with certain strings. Access to filename is given",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/eslint/bin/eslint.js -c eslint.conf.json index.js"
+    "test": "node node_modules/eslint/bin/eslint.js -c eslint.conf.json index.js && node_modules/.bin/mocha -R spec"
   },
   "keywords": [
     "gulp-wrapper",
@@ -20,10 +20,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "through2": "~0.4.1"
+    "through2": "~0.4.1",
+    "gulp-util": "~2.2.14"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
-    "eslint": "~0.4.2"
+    "eslint": "~0.4.2",
+    "should": "~3.1.4",
+    "gulp-util": "~2.2.14",
+    "gulp": "~3.5.6"
   }
 }

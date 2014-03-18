@@ -3,11 +3,13 @@
 //
 //	A plugin used to wrap files with custom strings
 
-'use strict';
+
 
 var through2 = require('through2');
 
 module.exports = function(opt) {
+
+	'use strict';
 
 	if(typeof opt !== 'object'){
 		opt = {};

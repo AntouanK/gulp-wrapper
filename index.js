@@ -37,7 +37,7 @@ module.exports = function(opt) {
 		}
 
 			//	get the file's name
-		var fileName = file.path.replace(file.base,''),
+		var fileName = file.path.replace(file.base,'').replace('\\', '/'),  //  replace front slash from windowsLand
 			//	set the new contents
 			newContentString = file.contents.toString(),
 			//	inject the file name if needed

@@ -39,15 +39,15 @@ module.exports = function(opt) {
         //  get the file's name
     var fileName = file.path.replace(file.base,''),  //  replace front slash from windowsLand
         //  set the new contents
-        newContentString = file.contents.toString(),
-        //  inject the file name if needed
-        header = opt.header.replace(/\${filename}/g,fileName),
-        footer = opt.footer.replace(/\${filename}/g,fileName);
+        newContentString = file.contents.toString();
 
     //  normalize windows platform slashes
     if(process.platform.match(/^win/)){
       fileName = fileName.replace(/\\/g, '/');
     }
+        //  inject the file name if needed
+    var header = opt.header.replace(/\${filename}/g,fileName),
+        footer = opt.footer.replace(/\${filename}/g,fileName);
 
     //  wrap the contents
     newContentString = header + newContentString + footer;

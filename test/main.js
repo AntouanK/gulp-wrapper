@@ -202,6 +202,34 @@ describe('gulp-wrapper', function () {
 			stream.end();
 		});
 
+		it('should accept functions as header and footer options', function(done){
 
+			var fakeContent = '<div>sample HTML</div>',
+				header      = function() { return 'HEADER'; },
+				footer      = function() { return 'FOOTER'; },
+				fakeFile    = getFakeFile(fakeContent),
+				stream      = wrapper({
+					header: header,
+					footer: footer
+				});
+
+			stream.on('data', function (file) {
+				should.exist(file);
+				should.exist(file.path);
+				should.exist(file.relative);
+				should.exist(file.contents);
+
+				file.path.should.equal('./test/fixture/file.js');
+				file.relative.should.equal('file.js');
+				file.contents.toString().should.equal('HEADER' + fakeContent + 'FOOTER');
+			});
+
+			stream.once('end', function () {
+				done();
+			});
+
+			stream.write(fakeFile);
+			stream.end();
+		});
 	});
 });

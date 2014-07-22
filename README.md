@@ -44,13 +44,12 @@ the result is :
 
 
 ##API
----
-###wrapper(options)
+
 
 ####options.header
-Type: `String`
+Type: `string` or `function`
 
-The string you want to prepend to the file. The file name is available through interpolation `${filename}`
+The `string` you want to prepend to the file. The file name is available through interpolation `${filename}`
 
 ```javascript
 //...
@@ -58,13 +57,27 @@ gulp.src('script/*.js')
     .pipe(wrapper({ header: '/* ${filename} MyCompany 2014 */'}))
 ```
 
-####options.footer
-Type: `String`
+A `function` that takes `file` as argument, and returns the string to be the header.
+```javascript
+//...
+gulp.src('script/*.js')
+    .pipe(wrapper({ header: function(file){ return '/* '+ file.path +' MyCompany 2014*/'; } }))
+```
 
-The string you want to append to the file. The file name is available through interpolation `${filename}`
+</br>
+####options.footer
+Type: `string` or `function`
+
+The `string` you want to append to the file. The file name is available through interpolation `${filename}`
 
 ```javascript
 //...
 gulp.src('script/*.js')
 	.pipe(wrapper({ footer: '/* ${filename} MyCompany 2014 */'}))
+```
+A `function` that takes `file` as argument, and returns the string to be the footer.
+```javascript
+//...
+gulp.src('script/*.js')
+    .pipe(wrapper({ footer: function(file){ return '/* '+ file.path +' MyCompany 2014*/'; } }))
 ```

@@ -206,8 +206,8 @@ describe('gulp-wrapper', function () {
 		it('should accept functions as header and footer options', function(done){
 
 			var fakeContent = '<div>sample HTML</div>',
-				header      = function(file) { return typeof file.path; },
-				footer      = function(file) { return typeof file.path; },
+				header      = function(file) { return file.path; },
+				footer      = function(file) { return file.path; },
 				fakeFile    = getFakeFile(fakeContent),
 				stream      = wrapper({
 					header: header,
@@ -222,7 +222,7 @@ describe('gulp-wrapper', function () {
 
 				file.path.should.equal('./test/fixture/file.js');
 				file.relative.should.equal('file.js');
-				file.contents.toString().should.equal('string' + fakeContent + 'string');
+				file.contents.toString().should.equal(file.path + fakeContent + file.path);
 			});
 
 			stream.once('end', function () {

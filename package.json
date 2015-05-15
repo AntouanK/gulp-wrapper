@@ -1,6 +1,6 @@
 {
   "name": "gulp-wrapper",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "A gulp plugin for wrapping files with custom strings. Access to filename is given through interpolation.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "wrapper",
     "header",
     "footer",
-	"gulpplugin"
+    "gulpplugin"
   ],
   "author": {
     "name": "Antonis Karamitros",

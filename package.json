@@ -4,7 +4,7 @@
   "description": "A gulp plugin for wrapping files with custom strings. Access to filename is given through interpolation.",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/eslint/bin/eslint.js -c eslint.conf.json index.js && node_modules/.bin/mocha -R spec"
+    "test": "node node_modules/eslint/bin/eslint.js index.js && node_modules/.bin/mocha -R spec"
   },
   "keywords": [
     "gulp-wrapper",
@@ -25,12 +25,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "through2": "~0.4.1",
-    "gulp-util": "~2.2.14"
+    "gulp-util": "^3.0.4",
+    "through2": "^0.6.5"
   },
   "devDependencies": {
-    "mocha": "~1.18.2",
-    "eslint": "~0.4.2",
-    "should": "~3.1.4"
+    "eslint": "^0.21.0",
+    "mocha": "^2.2.5",
+    "should": "^6.0.1"
   }
 }

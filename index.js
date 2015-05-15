@@ -5,9 +5,10 @@
 
 
 
-var through2 = require('through2'),
-    gutil = require('gulp-util'),
-    PluginError = gutil.PluginError;
+var through2    = require('through2'),
+    gutil       = require('gulp-util');
+var PluginError = gutil.PluginError;
+
 
 module.exports = function(opt) {
 
@@ -30,7 +31,7 @@ module.exports = function(opt) {
       }
 
         //  get the file's name
-    var fileName = file.path.replace(file.base,''),  //  replace front slash from windowsLand
+    var fileName = file.path.replace(file.base, ''),  //  replace front slash from windowsLand
         //  set the new contents
         newContentString = file.contents.toString(),
         header,
@@ -52,7 +53,7 @@ module.exports = function(opt) {
     //  -------------------------------  if header given is a string...
     } else if(typeof opt.header === 'string'){
       //  inject the file name if needed
-      header = opt.header.replace(/\${filename}/g,fileName);
+      header = opt.header.replace(/\${filename}/g, fileName);
 
     //  -------------------------------  if header given is anything else...
     } else if(typeof opt.header !== 'string'){
@@ -67,7 +68,7 @@ module.exports = function(opt) {
     //  -------------------------------  if footer given is a string...
     } else if(typeof opt.footer === 'string'){
       //  inject the file name if needed
-      footer = opt.footer.replace(/\${filename}/g,fileName);
+      footer = opt.footer.replace(/\${filename}/g, fileName);
 
     //  -------------------------------  if footer given is anything else...
     } else if(typeof opt.footer !== 'string'){

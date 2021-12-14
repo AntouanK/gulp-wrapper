@@ -6,9 +6,8 @@
 
 
 var through2    = require('through2'),
-    gutil       = require('gulp-util');
-var PluginError = gutil.PluginError;
-
+ PluginError    = require('plugin-error'),
+    path        = require('path');
 
 module.exports = function(opt) {
 
@@ -31,7 +30,7 @@ module.exports = function(opt) {
       }
 
         //  get the file's name
-    var fileName = file.path.replace(file.base, ''),  //  replace front slash from windowsLand
+    var fileName = path.relative(file.base, file.path),  //  replace front slash from windowsLand
         //  set the new contents
         newContentString = file.contents.toString(),
         header,
@@ -80,7 +79,7 @@ module.exports = function(opt) {
     newContentString = header + newContentString + footer;
 
     //  change the file contents
-    file.contents = new Buffer(newContentString);
+    file.contents = Buffer.from(newContentString);
 
     //  push the file into the output
     this.push(file);

@@ -1,16 +1,17 @@
 var should = require('should'),
     wrapper = require('../'),
-    gutil = require('gulp-util'),
-    fs = require('fs'),
-    pj = require('path').join;
+	vinyl = require('vinyl'),
+	fs = require('fs'),
+	pj = require('path').join;
+
+var $filePath = 'test/fixture/file.js';
 
 var getFakeFile = function (fileContent){
-
-	return new gutil.File({
+	return new vinyl({
 		path: './test/fixture/file.js',
 		cwd: './test/',
 		base: './test/fixture/',
-		contents: new Buffer(fileContent || '')
+		contents: Buffer.from(fileContent || '')
 	});
 };
 
@@ -63,7 +64,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal(fakeContent);
 
@@ -93,7 +94,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal(header + fakeContent);
 
@@ -123,7 +124,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal(fakeContent + footer);
 
@@ -155,7 +156,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal(header + fakeContent + footer);
 
@@ -187,7 +188,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal('<script id="'+file.relative+'">' + fakeContent + footer);
 
@@ -220,7 +221,7 @@ describe('gulp-wrapper', function () {
 				should.exist(file.relative);
 				should.exist(file.contents);
 
-				file.path.should.equal('./test/fixture/file.js');
+				file.path.should.equal($filePath);
 				file.relative.should.equal('file.js');
 				file.contents.toString().should.equal(file.path + fakeContent + file.path);
 			});

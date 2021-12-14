@@ -6,9 +6,8 @@
 
 
 var through2    = require('through2'),
-    gutil       = require('gulp-util');
-var PluginError = gutil.PluginError;
-
+ PluginError    = require('plugin-error'),
+    path        = require('path');
 
 module.exports = function(opt) {
 

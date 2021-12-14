@@ -11,7 +11,7 @@ var getFakeFile = function (fileContent){
 		path: './test/fixture/file.js',
 		cwd: './test/',
 		base: './test/fixture/',
-		contents: new Buffer(fileContent || '')
+		contents: Buffer.from(fileContent || '')
 	});
 };
 

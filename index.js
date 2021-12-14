@@ -30,7 +30,7 @@ module.exports = function(opt) {
       }
 
         //  get the file's name
-    var fileName = file.path.replace(file.base, ''),  //  replace front slash from windowsLand
+    var fileName = path.relative(file.base, file.path),  //  replace front slash from windowsLand
         //  set the new contents
         newContentString = file.contents.toString(),
         header,

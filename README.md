@@ -64,7 +64,7 @@ gulp.src('script/*.js')
     .pipe(wrapper({ header: function(file){ return '/* '+ file.path +' MyCompany 2014*/'; } }))
 ```
 
-</br>
+<br>
 ####options.footer
 Type: `string` or `function`
 
